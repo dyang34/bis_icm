@@ -1,0 +1,426 @@
+body, body#lgoin {
+  background-color: var(--bis-color-backg);
+  overflow: hidden;
+}
+#wrap {
+  position: relative;
+  width: 100%; height: 100vh;
+  padding: 0; margin: 0;
+}
+
+/******************************************************************
+           Hearder Style Css 
+***********************/
+header {
+  background-color: var(--bis-color-head);
+  height: 65px;
+  width: 100%;
+  position: fixed; top: 0px; left: 0px; z-index: 98;
+}
+#nav {
+  margin-left: 250px;
+  transition: margin-left .5s;
+}
+header nav > ul {
+  display: flex;
+}
+header nav > ul > li {
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+header nav > ul > li a {
+  display: block;
+  height: 65px; line-height: 65px;
+  padding: 0 45px;
+  font-family: var(--bis-ffm-nsu-square);
+  font-size: var(--bis-fs-text-18); font-weight: 400;
+  color: var(--bis-color-white); letter-spacing: -.0125rem;
+  cursor: pointer;
+}
+header nav > ul > li a:before {
+  content: "";
+  position: absolute; top: 0px; left: 0px;
+  width: 1px; height: 65px;
+  background-color: rgba(255, 255, 255, .15);
+}
+header nav > ul > li:first-child a:before {
+  background-color: transparent;
+}
+header nav > ul > li a:after {
+  content: "";
+  position: absolute; top: 0px; right: 0px;
+  width: 1px; height: 65px;
+  background-color: rgba(0, 0, 0, .25);
+}
+header nav > ul > li a:hover {
+  background-color: #2C65FF;
+  color: var(--bis-color-white);
+}
+header nav > ul > li a:active,
+header nav > ul > li a.active {
+  background-color: var(--bis-color-navy);
+  color: var(--bis-color-white);
+}
+header .right-menu {
+  position: absolute; top: 0px; right: 0px;
+}
+header .right-menu > ul {
+  display: flex;
+}
+header .right-menu > ul > li {
+  position: relative;
+  float: left; line-height: 65px;
+  font-size: var(--bis-fs-text-13);
+  color: var(--bis-color-peacock);
+}
+header .right-menu > ul > li:first-child {
+  margin-right: 30px;
+}
+header .right-menu > ul > li span.userid {
+  font-family: var(--bis-ffm-nsu-square);
+  font-size: var(--bis-fs-text-18); font-weight: 700;
+  color: var(--bis-color-white);
+}
+header .right-menu > ul > li a.logout {
+  display: block;
+  font-size: var(--bis-fs-text-13); font-weight: 400; 
+  color: #bee0ff; line-height: 65px;
+  padding: 0 30px;
+}
+header .right-menu > ul > li a.logout:before {
+  content: "";
+  position: absolute; top: 50%; left: 0px;
+  transform: translateY(-50%);
+  width: 1px; height: 17px;
+  background-color: var(--bis-color-white)
+}
+header .right-menu > ul > li a:hover.logout {
+  color: var(--bis-color-white); line-height: 65px;
+}
+header .right-menu > ul > li a:focus.logout, header .right-menu > ul > li a:active.logout {
+  color: #0AE2FF; line-height: 65px;
+}
+
+
+
+/******************************************************************
+           gnb Style Css  
+***********************/
+.menu-wrap {
+  height: 100%; width: 250px;
+  position: fixed; top: 0; left: 0; z-index: 99;
+  background-color: var(--bis-color-deepNavy);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.menu-wrap h1 {
+  margin: 45px auto;
+  text-align: center;
+  width: 250px
+}
+.menu-wrap h1 a {
+  font-size: var(--bis-fs-title-20);
+  color: var(--bis-color-white);
+  letter-spacing: -.0625rem;
+}
+.menu-wrap h1 a img {
+  margin: 0px auto 10px;
+  display: block;
+}
+.menu-wrap a.closebtn {
+  display: block;
+  position: absolute; top: 10px; left: 208px;
+  line-height: 25px; font-size: 0; color: var(--bis-color-white);
+  width: 18px; height: 18px;
+  background: var(--bis-color-blue);
+  border-radius: 100%; padding: 8px;
+  transition:all 0.5s ease;
+}
+.menu-wrap a.closebtn i.fa-nav {
+  display: block;
+  background: url('../images/common/icon-arrow-white.svg') no-repeat;
+  background-size: 10px;
+  background-position: 6px 1px;
+  transform: rotate( 180deg );
+  width: 18px; height: 18px;
+}
+span.openBtn {
+  display: block;
+  position: absolute; top: 80px; left: 0px;
+  line-height: 25px; font-size: 0; color: var(--bis-color-white);
+  width: 10px; height: 18px;
+  background: var(--bis-color-deepNavy);
+  border-radius: 0px 5px 5px 0px; padding: 8px;
+  transition:all 0.5s ease;
+  cursor: pointer;
+}
+span.openBtn i.fa-nav {
+  display: block;
+  background: url('../images/common/icon-arrow-white.svg') no-repeat;
+  background-size: 10px;
+  background-position: 1px 1px;
+  width: 18px; height: 18px;
+  border-radius: 0px 5px 5px 0;
+  transform: rotate( 0deg );
+  transition: all 0.5s ease;
+}
+#conts {
+  transition: margin-left .5s;
+  margin-left: 250px;
+}
+.openBtn {
+  position: absolute; top: 80px; left: 0px;
+}
+
+/************************************** 2,3depth 메뉴 css */
+.menu-wrap .accordion {
+  margin: 0 15px;
+  display: -webkit-flex; display: -webkit-box; display: -moz-flex; display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+     -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.menu-wrap .accordion .accordion_list {
+  width: 220px;
+  background-color: transparent;
+}
+.accordion_list .link {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  width: 200px;
+  font-size: var(--bis-fs-title-20); font-weight: 700;
+  color: #ABB3D6; line-height: 58px;
+  -webkit-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease;
+       -o-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+  cursor: pointer;
+}
+.accordion_list .link:hover {
+  color: var(--bis-color-white);
+}
+.accordion li:last-child .link {
+  border-bottom: 0;
+}
+/** ========================
+                * Diseño iconos font-awesome
+============================= **/
+.accordion li i {
+  position: absolute; top: 50%; right: 20px;
+  transform: translateY(-50%);
+  width: 15px; height: 9px;
+  -webkit-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease;
+       -o-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+}
+.accordion li i.fa-chevron-down {
+  background: url('../images/common/icon-arrow-down.svg') no-repeat;
+  background-size: 100%;
+  width: 15px; height: 9px;
+}
+.accordion li:hover i.fa-chevron-down {
+  background: url('../images/common/icon-arrow-down-hover.svg') no-repeat;
+  background-size: 100%;
+  width: 15px; height: 9px;
+}
+/**===================================
+                * Conf. clase link al estar activo submenu (con js)
+====================================**/
+.accordion li.open .link {
+  color: #26B1FF;
+}
+.accordion li.open i.fa-chevron-down {
+  background: url('../images/common/icon-arrow-down-open.svg') no-repeat;
+  background-size: 100%;
+  transform: rotate( 180deg ) translateY(50%);
+  width: 15px; height: 9px;
+}
+/**=======================
+                * Submenu
+==========================**/
+.submenu {
+  display: none;
+  /* background: #444359; */
+  padding-bottom: 30px;
+}
+.submenu li {
+  margin-bottom: 1px;
+}
+.submenu li:hover {
+  background-color: #36458F;
+  border-radius: 3px;
+}
+.submenu a {
+  display: block;
+  padding-left: 20px;
+  font-family: var(--bis-ffm-nsu-square); font-size: var(--bis-fs-text-18); font-weight: 300; line-height: 48px; color: #A1AEEE;
+  -webkit-transition: all 0.25 ease;
+     -moz-transition: all 0.25 ease;
+       -o-transition: all 0.25 ease;
+          transition: all 0.25 ease;
+}
+.submenu a:hover {
+  color: #26B1FF;
+}
+.submenu a.active {
+  color: var(--bis-color-white);
+  background-color: #36458F;
+  border-radius: 3px;
+}
+
+
+
+/******************************************************************
+           Common Style Css 
+***********************/
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.id_pw_wrap .input_row .icon_cell .icon_pw,
+.id_pw_wrap .input_row .icon_cell .icon_id {
+  background-image: url('../images/admin/amdin_icon_220913.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+}
+.content-wrap {
+  height: 100vh;
+}
+.button-center {
+  text-align: center;
+  margin: 30px auto 0;
+}
+.button-left {
+  text-align: left;
+  margin-top: 30px;
+}
+.button-right {
+  text-align: right;
+  margin-top: 30px;
+}
+
+
+/************************************** 페이지목록 */
+.paginate {
+  margin: 20px 0;
+  text-align: center;
+  line-height: normal;
+}
+.paginate > ul > li {
+  float: left;
+  color: var(--bis-color-baclk);
+}
+.paginate > ul > li.item a {
+  display: block;
+  border: 1px solid var(--bis-color-lightGray); border-left: 0px;
+  width: 35px; height: 35px; line-height: 35px;
+  font-size: var(--bis-fs-text-15); font-weight: 500;
+  text-align: center; color: var(--bis-color-navy);
+  background-color: var(--bis-color-white);
+}
+.paginate > ul > li.item.first a,
+.paginate > ul > li.item:first-child a {
+  border-left: 1px solid var(--bis-color-lightGray);
+}
+.paginate > ul > li.item.active a {
+  border-color: var(--bis-color-blue);
+  background-color: var(--bis-color-blue);
+  color: var(--bis-color-white);
+}
+.paginate > ul > li.prev a {
+  position: relative;
+}
+.paginate > ul > li.prev:nth-child(2) a {
+  border-left: 0px;
+  margin-right: 20px;
+}
+.paginate > ul > li.next {
+  position: relative;
+  border-left: 1px solid var(--bis-color-lightGray);
+  margin-left: 20px;
+}
+.paginate > ul > li.next:last-child {
+  margin-left: 0px;
+  border-left: 0px;
+}
+.paginate > ul > li.prev span,
+.paginate > ul > li.next span {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 0;
+}
+.paginate > ul > li.item:hover a {
+  border-color: var(--bis-color-blue);
+  color: var(--bis-color-white);
+  background-color: var(--bis-color-blue);
+}
+.paginate > ul > li.item.disabled a {
+  display: block;
+  cursor: not-allowed;
+  opacity: .4;
+  filter: alpha(opacity=40);  
+}
+.paginate > ul > li.item.disabled:hover a {
+  background-color: var(--bis-color-white);
+  border-color: var(--bis-color-lightGray);
+}
+
+.paginate > ul > li.prev span.prev-first,
+.paginate > ul > li.item.prev.disabled:hover span.prev-first {
+  background: url('../images/admin/prev.png') no-repeat;
+  width: 7px; height: 12px;
+}
+.paginate > ul > li.item.prev.disabled:hover span.prev-first {
+  transform: rotate(0deg) translate(-50%,-50%);
+}
+.paginate > ul > li.prev span.prev-last,
+.paginate > ul > li.item.prev.disabled:hover span.prev-last {
+  background: url('../images/admin/prev-start.png') no-repeat;
+  width: 13px; height: 12px;
+}
+.paginate > ul > li.item.prev.disabled:hover span.prev-last {
+  transform: rotate(0deg) translate(-50%,-50%);
+}
+.paginate > ul > li.next span.next-first,
+.paginate > ul > li.item.next.disabled:hover span.next-first {
+  background: url('../images/admin/prev.png') no-repeat;
+  width: 7px; height: 12px;
+  transform: rotate(180deg) translate(50%,50%);
+}
+.paginate > ul > li.next span.next-last,
+.paginate > ul > li.item.next.disabled:hover span.next-last {
+  background: url('../images/admin/prev-start.png') no-repeat;
+  width: 13px; height: 12px;
+  transform: rotate(180deg) translate(50%,50%);
+}
+.paginate > ul > li.prev:hover span.prev-first {
+  background: url('../images/admin/next-focus.png') no-repeat;
+  width: 8px; height: 12px;
+  transform: rotate(180deg) translate(50%,50%);
+}
+.paginate > ul > li.prev:hover span.prev-last {
+  background: url('../images/admin/endnext-focus.png') no-repeat;
+  width: 13px; height: 12px;
+  transform: rotate(180deg) translate(50%,50%);
+}
+.paginate > ul > li.next:hover span.next-first {
+  background: url('../images/admin/next-focus.png') no-repeat;
+  width: 8px; height: 12px;
+  transform: rotate(0deg) translate(-50%,-50%);
+}
+.paginate > ul > li.next:hover span.next-last {
+  background: url('../images/admin/endnext-focus.png') no-repeat;
+  width: 13px; height: 12px;
+  transform: rotate(0deg) translate(-50%,-50%);
+}

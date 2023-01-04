@@ -1,0 +1,547 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('font/NanumSquare/nanumsquare.css');
+@import url('font/NanumSquareRound/nanumsquareround.css');
+
+/**********************************************************
+   v1.0 | 20220516 */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0; padding: 0; border: 0;
+	font-size: 100%; font: inherit; font-family: 'Noto Sans KR', 'NanumSquare', 'NanumSquareRound', 'Malgun Gothic', "맑은고딕", "Noto Sans KR", Dotum, sans-serif; line-height: 110%;
+  letter-spacing: -.0469rem; color: var(--color-black);
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+div { display: block }
+article, aside, footer, header, hgroup, main, nav, section { display: block }
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+  width: 100%;
+}
+address { display: block; }
+figcaption { display: block }
+hr {
+  display: block; overflow: hidden;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto;
+  border-style: inset; border-width: 1px
+}
+map {
+  display: inline
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+}
+video {
+  object-fit: contain;
+}
+video:-webkit-full-page-media {
+  margin: auto; position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  max-height: 100%; max-width: 100%;
+}
+img {
+  border-style: none;
+}
+button, input, select, textarea {
+  border-radius: 0;
+  border: none;
+  background: 0 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-text-size-adjust: none;
+}
+strong {
+  font-weight: 700; line-height: 140%;
+}
+p {
+  font-size: var(--fs-text-12); font-weight: 400;
+}
+
+/* form elements */
+form {
+  display: block;
+  margin-top: 0__qem;
+}
+:-webkit-any(table, thead, tbody, tfoot, tr) > form:-internal-is-html {
+  display: none !important;
+}
+label {
+  cursor: default;
+}
+legend {
+  display: block;
+  padding-inline-start: 2px;
+  padding-inline-end: 2px;
+  border: none
+}
+select { 
+  border-radius:0;          /* 아이폰 사파리 보더 없애기 */ 
+  -webkit-appearance:none;  /* 화살표 없애기 for chrome*/ 
+     -moz-appearance:none;  /* 화살표 없애기 for firefox*/ 
+          appearance:none   /* 화살표 없애기 공통*/ 
+}
+h1 {
+  font-size: var(--fs-title-20); font-weight: 700;
+  line-height: 140%;
+  font-family: var(--ffm-nsu-square);
+}
+h2 {
+  font-size: var(--fs-title-32); font-weight: 700;
+  line-height: 140%;
+}
+h3 {
+  font-size: var(--fs-title-28); font-weight: 700;
+  line-height: 140%;
+}
+h4 {
+  font-weight: 700;
+  line-height: 140%;
+}
+p {
+  font-size: var(--fs-text-01); font-weight: 400;
+  line-height: 140%;
+}
+
+.clearfix:after {
+  content: " "; 
+  display: block; 
+  clear: both;
+}
+.inb {
+  font-size: 0;
+}
+.inb > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
+.mgt0 { margin-top: 0px !important; }
+.mgt5 { padding-top: 5px !important; }
+
+.mgl5 { padding-left: 5px !important; }
+.mgl10 { padding-left: 10px !important; }
+
+.fc-red {
+  color: var();
+}
+.fc-blue {
+  color: var();
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+
+/******************************************************************
+           input & textarea Style Css 
+***********************/
+input[type=text], input[type=tel], input[type=email], input[type=password], 
+input[type=url], input[type=number], input[type=search], input[type=date],
+textarea {
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; 
+  outline: none; 
+  font-family: sans-serif;
+}
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: initial;
+  border: initial;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* PLACEHOLDER */
+::-webkit-input-placeholder { color: #aaa; }
+     :-ms-input-placeholder { color: #aaa; }
+         ::-moz-placeholder { color: #aaa; }
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color: transparent; }
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { color: transparent; }
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { color: transparent; }
+
+input {
+  vertical-align: middle;
+  outline: none; border:none;
+  border-radius: 0;
+}
+input:focus {
+  border-color: var(--point-color);
+}
+.input01 {
+  width: 100%; height: 32px; line-height: 32px;
+  border:1px solid var(--color-lightGray); border-radius: 3px;
+  background-color: var(--color-white);
+  padding:0 15px; padding-right: 0px;
+  font-size: var(--fs-text-02); font-weight: 400;
+}
+.input01:focus {
+  border-color: var(--point-color);
+}
+.input-login {
+  width: 100%; height: 68px; line-height: 68px;
+  border:0px;
+  background-color: var(--color-white);
+  padding:0 5%;
+  font-size: var(--fs-text-12); font-weight: 400;
+}
+
+
+/******************************************************************
+           checkbox & radio Style Css 
+***********************/
+.choice-round input, .choice-circle input {
+  display: none;
+}
+.choice-round, .choice-circle {
+  position: relative;
+  user-select: none;
+}
+.choice-round label, .choice-circle label{
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: 300;
+  padding-left: 25px;
+}
+/***************************************** circle */
+.choice-circle span.box {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--color-lightGray);
+  vertical-align: middle;
+  transition: 0.3s ease;
+  position: absolute;
+  left: 0;
+}
+.choice-circle span.box:before, .choice-circle span.box:after {
+  content: "";
+  position: absolute;
+  width: 2px; height: 9px;
+  background: var(--color-lightGray);
+  transition: all 0.3s ease;
+}
+.choice-circle span.box:before {
+  transform: rotate(45deg) translateY(-3px) translateX(11px);
+}
+.choice-circle span.box:after {
+  height: 6px;
+  transform: rotate(-45deg) translateY(10px) translateX(-2px);
+}
+.choice-circle input:checked + label span.box {
+  border-color: var(--color-blue);
+}
+.choice-circle input:checked + label span.box:before {
+  transform: rotate(45deg) translateY(-3px) translateX(11px);
+  background-color: var(--color-blue);
+}
+.choice-circle input:checked + label span.box:after {
+  height: 6px;
+  transform: rotate(-45deg) translateY(10px) translateX(-2px);
+  background-color: var(--color-blue);
+}
+.choice-circle input:disabled:checked + span.box {
+  background: var(--color-lightGray);
+  border: var(--color-lightGray);
+}
+.choice-circle input:disabled:checked ~ label:before, .choice-circle input:disabled:checked ~ label:after,
+.choice-round input:disabled:checked ~ label:before, .choice-round input:disabled:checked ~ label:after {
+  background: var(--color-black);
+}
+/***************************************** circle */
+.choice-round span.box {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border-radius: 3px;
+  border: 1px solid var(--color-lightGray);
+  vertical-align: middle;
+  transition: 0.3s ease;
+  position: absolute;
+  left: 0;
+}
+.choice-round span.box:before, .choice-round span.box:after {
+  content: "";
+  position: absolute;
+  width: 2px; height: 9px;
+  background: var(--color-lightGray);
+  transition: all 0.3s ease;
+}
+.choice-round span.box:before {
+  transform: rotate(45deg) translateY(-3px) translateX(11px);
+}
+.choice-round span.box:after {
+  height: 6px;
+  transform: rotate(-45deg) translateY(10px) translateX(-2px);
+}
+.choice-round input:checked + label span.box {
+  border-color: var(--color-blue);
+}
+.choice-round input:checked + label span.box:before {
+  transform: rotate(45deg) translateY(-3px) translateX(11px);
+  background-color: var(--color-blue);
+}
+.choice-round input:checked + label span.box:after {
+  height: 6px;
+  transform: rotate(-45deg) translateY(10px) translateX(-2px);
+  background-color: var(--color-blue);
+}
+.choice-round input:disabled:checked + span.box {
+  background: var(--color-lightGray);
+  border: var(--color-lightGray);
+}
+
+
+/******************************************************************
+           selectBox Style Css 
+***********************/
+select {
+  -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+     -moz-appearance: none;
+          appearance: none;
+  background: url('') no-repeat 95% 50%;  /* 화살표 모양의 이미지 */ 
+  background-size: 14px;
+}
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand { 
+  display: none;
+}
+
+select {
+  padding: 0 0px; padding-left: 15px;
+  border: 0; border-radius: 0;
+  width: 100%; height: 32px;
+  font-weight: 400;
+  cursor: pointer;
+}
+select:focus, select:active {
+  outline: 0;
+  border-color: var(--color-red);
+}
+.select-box {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%; height: 30px; line-height: 30px;
+  background-color: var(--color-white);
+  border-radius: 3px; border: 1px solid var( --color-lightGray);
+  cursor: pointer;
+}
+.select-box:before {
+  content: '';
+  width: 35px;
+  position: absolute; top: 0px; right: 0px; bottom: 0px;
+  background: var(--color-snow);
+  border-radius: 0 5px 5px 0;
+  pointer-events: none;
+}
+.select-box:after {
+  content: '';
+  position: absolute; top: 0; right: 10px; bottom: 0;
+  background-image: url('../images/admin/amdin_icon_220913.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: -52px -25px;
+  width: 16px; height: 9px;
+  margin: auto;
+  pointer-events: none;
+}
+.select-box:hover {
+  border: 1px solid var(--point-color);
+}
+.select-box:hover:after {
+  background-image: url('../images/admin/amdin_icon_220913.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: -52px -39px;
+  width: 16px; height: 9px;
+}
+
+
+/******************************************************************
+           File Upload Style css 
+***********************/
+.uploader {
+  background-color: var(--color-snow);
+  overflow: hidden;
+  position: relative;
+  height: 34px;
+}
+.uploader input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  overflow: hidden;
+  text-align: right;
+  position: absolute; top: 0; right: 0; left: 0; bottom: 0; z-index: 1;
+  width: 100%;
+  cursor: pointer;
+}
+.image input:hover + button {
+  background-color: var(--point-color);
+  border-color: var(--point-color);
+}
+.uploader input:active + button {
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+.uploader label {
+  float: left;
+  margin: 0; line-height: 32px;
+  position: relative; top: 0px; left: 0;
+  padding-left: 15px;
+  width: 90%;
+  border: 1px solid var(--color-lightGray); border-radius: 3px;
+}
+.uploader:hover label,
+.uploader input:hover + labell {
+  border-color: var(--point-color);
+}
+.uploader:active label,
+.uploader input:active + label {
+  border-color: var(--color-black);
+}
+.btn-choose-file {
+  background-color: var(--color-black);
+  border: 1px solid var(--color-black); border-radius: 3px;
+  color: var(--color-white);
+  font-size: var(--fs-text-12); font-weight: 300;
+  height: 34px; line-height: 34px;
+  padding: 0 25px;
+  position: absolute; top: 0px; right: 0px;
+  z-index: 0;
+}
+.uploader:hover .btn-choose-file {
+  background-color: var(--point-color);
+  border-color: var(--point-color);
+}
+.uploader:active .btn-choose-file {
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+
+
+/******************************************************************
+           textarea Style css 
+***********************/
+.textarea::-webkit-scrollbar { 
+  width: 5px; /*스크롤바의 너비*/ 
+} 
+.textarea::-webkit-scrollbar-thumb { 
+  background-color: var(--color-blue); /*스크롤바의 색상*/
+  border-radius: 10px; /*스크롤바 라운드*/
+} 
+.textarea::-webkit-scrollbar-track { 
+  background-color: var(--color-lightSilver); /*스크롤바 트랙 색상*/
+  border-radius: 10px; /*스크롤바 트랙 라운드*/
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.1); /*스크롤바 트랙 안쪽 그림자*/
+}
+
+
+
+
+/******************************************************************
+           root Style Css 
+***********************/
+:root {
+  /* color style */
+  --point-color:		   #3668F3;
+  --point-color-active:	   #323FB2;
+  --point-color-hover:     #2C65FF;
+  --point-color-active:    #323FB2;
+  --color-link-hover:      #26B1FF;
+  --color-menu-hover:      #36458F;
+  --color-txtlink-hover:   #A1AEEE;
+  --color-tb-hover:        #F2FBFF;
+  --color-link:			   #ABB3D6;
+
+  --color-backg:		   #F2F7FA;
+  --color-head-back:       #667DFD;
+  --color-navi-back:	   #303342;
+
+  --color-white:		   #fff;
+  --color-black:		   #000;
+  --color-gray:		       #898989;
+  --color-lightGray:       #d8d8d8;
+  --color-lightSilver:     #F0F0F0;
+  --color-snow:            #F8F8F8;
+  --color-blue:            #3668F3;
+  --color-sky:             #00A0DF;
+  --color-navy:            #323FB2;
+  --color-deepNavy:        #303342;
+  --color-denim:           #090E28;
+  --color-red:             #FE3B1F;
+  --color-orange:          #FF9015;
+  --color-yellow:          #FCE200;
+  --color-yellowGreen:     #76BC21;
+  --color-orange:          #FF9015;
+
+  /* widht */
+  --ffm-nsu-square: 'NanumSquare', sans-serif;
+  --ffm-nsu-sqround: 'NanumSquareRound', sans-serif;
+
+  /* widht */
+  --width-second: 49%;
+  --width-third:  32%;
+
+  /* font size style */
+  --fs-title-32: 32px;
+  --fs-title-28: 28px;
+  --fs-title-22: 22px;
+  --fs-title-20: 20px;
+  --fs-text-12:  12px;
+  --fs-text-13:  13px;
+  --fs-text-15:  15px;
+  --fs-text-18:  18px;
+
+  /* Height Row size style */
+  --row-10: 10px;
+  --row-20: 20px;
+  --row-30: 30px;
+  --row-35: 35px;
+  --row-50: 50px;
+
+  /* width Col size style */
+  --col-10: 10px;
+}

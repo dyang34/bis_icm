@@ -1,0 +1,264 @@
+.button {  
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  color:white;
+  text-decoration:none;
+  /* box-shadow:inset 0px -1px 0px rgba(0,0,0,0.1); */
+  border-radius:5px;
+}
+.button:active {
+  position:relative;
+  /* box-shadow:inset 0px 0px 0px rgba(0,0,0,0.0); */
+}
+
+.Gray {
+  border: 3px solid var(--color-lightGray);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 34px;
+}
+.Gray:hover {
+  border-color: var(--color-sky);
+  color: var(--color-sky);
+}
+.Gray:active {
+  background-color: var(--color-sky);
+  color: var(--color-white)
+}
+.blue {
+  border: 1px solid var(--color-blue);
+  background-color: var(--color-white);
+  color: var(--color-blue);
+  border-radius: 34px;
+}
+.blue:hover {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+.red {
+  border: 1px solid var(--color-red);
+  background-color: var(--color-white);
+  color: var(--color-red);
+  border-radius: 34px;
+}
+.red:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+.green {
+  border: 1px solid var(--color-yellowGreen);
+  background-color: var(--color-white);
+  color: var(--color-yellowGreen);
+  border-radius: 34px;
+}
+.green:hover {
+  background-color: var(--color-yellowGreen);
+  color: var(--color-white);
+}
+.excel {
+  border: 3px solid #107C41;
+  background-color: var(--color-white);
+  color: #185C37;
+  border-radius: 34px;
+}
+.excel:hover {
+  background-color: #21A366;
+  color: var(--color-white);
+}
+.excel:active {
+  background-color: #107C41;
+  color: var(--color-white);
+}
+.lineBlue {
+  border: 3px solid var(--color-blue); border-radius: 34px;
+  background-color: var(--color-white);
+  color: var(--color-blue);
+}
+.lineBlue:hover {
+  background-color: #81A3FF;
+  color: var(--color-white);
+}
+.lineBlue:active {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.line-basic {
+  border: 3px solid var(--point-color); border-radius: 34px;
+  background-color: var(--color-white);
+  color: var(--point-color);
+}
+.line-basic:hover {
+  background-color: var(--point-color);
+  color: var(--color-white);
+}
+.line-basic:active {
+  background-color: var(--point-color-active);
+  border-color: var(--point-color-active);
+  color: var(--color-white);
+}
+
+.lineNavy {
+  border: 3px solid #3A3F54; border-radius: 34px;
+  background-color: var(--color-white);
+  color: #3D4C67;
+}
+.lineNavy:hover {
+  background-color: #60708D;
+  color: var(--color-white);
+}
+.lineNavy:active {
+  background-color: #3D4C67;
+  color: var(--color-white);
+}
+.lineGray1 {
+  border: 1px solid var(--color-lightGray); border-radius: 3px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+.lineGray1:hover {
+  border-color: var(--point-color);
+  color: var(--point-color);
+}
+.lineGray1:active {
+  border-color: var(--point-color);
+  background-color: var(--point-color);
+  color: var(--color-white);
+}
+.lineRed {
+  border: 3px solid var(--color-red); border-radius: 34px;
+  background-color: var(--color-white);
+  color: var(--color-red);
+}
+.lineRed:hover {
+  background-color: #FF705B;
+  color: var(--color-white);
+}
+.lineRed:active {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+.lineGray2 {
+  border: 3px solid var(--color-lightGray); border-radius: 34px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+.lineGray2:hover {
+  background-color: var(--color-lightSilver);
+  color: var(--color-black);
+}
+.lineGray2:active {
+  background-color: var(--color-lightGray);
+  color: var(--color-black);
+}
+
+.filter {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: 15px; border: 1px solid var(--color-lightGray); border-radius: 15px;
+  box-shadow:0px 0px 2px 0px rgba(0,0,0, .2); 
+  color: var(--color-black);
+}
+.filter:hover {
+  border: 1px solid var(--point-color);
+  /*
+  box-shadow:inset 0px -2px 0px rgba(0,0,0, .2), 0px 0px 2px 0px rgba(0,0,0, .2);
+  */
+  color: var(--point-color);
+}
+.filter:active {
+  top:2px;
+  border-color: var(--point-color); background-color: var(--point-color);
+  box-shadow:inset 0px -1px 0px rgba(0,0,0, .2),0px 2px 2px 0px rgba(0,0,0, .2);
+  color: var(--color-white);
+}
+.filter.active {
+  top:0px;
+  border-color: var(--point-color); background-color: var(--point-color);
+  box-shadow:inset 0px -1px 0px rgba(0,0,0, .2),0px 2px 2px 0px rgba(0,0,0, .2);
+  color: var(--color-white);
+}
+.filter i {
+  display: inline-block;
+  width: 11px; height: 9px;
+  font-size: 0;
+}
+.filter i.icon-up {
+  background: url('../images/admin/icon-up.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+  margin: 10px 0px 0 2px;
+  vertical-align: top;
+}
+.filter:hover i.icon-up {
+  background: url('../images/admin/icon-up-hover.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+}
+.filter.active i.icon-up,
+.filter:active i.icon-up {
+  background: url('../images/admin/icon-up-focus.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+}
+.filter i.icon-down {
+  background: url('../images/admin/icon-down.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+  margin: 10px 0px 0 2px;
+  vertical-align: top;
+}
+.filter:hover i.icon-down {
+  background: url('../images/admin/icon-down-hover.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+}
+.filter.active i.icon-down,
+.filter:active i.icon-down {
+  background: url('../images/admin/icon-down-focus.svg') no-repeat;
+  background-size: 100%;
+  width: 11px; height: 9px;
+}
+ 
+.login {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-sky); border-radius: 34px;
+  color: var(--color-black);
+}
+.login:hover {
+  background-color: var(--color-sky);
+  color: var(--color-white);
+}
+.login:active {
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.xlarge {
+  font-family: var(--ffm-nsu-square); font-size: var(--fs-title-22); font-weight: 700;
+  padding: 0 0px; line-height: 68px; width: 100%;
+  text-align: center;
+}
+.large {
+  font-size: var(--fs-text-15); font-weight: 700;
+  padding: 0 50px; line-height: 52px;
+}
+.medium {
+  font-size: var(--fs-text-12); font-weight: 400; line-height: 32px;
+  padding: 0 32px;
+}
+.smaill {
+  font-size: var(--fs-text-12); font-weight: 300; line-height: 30px;
+  padding: 0 16px;
+}
+.xsmail {
+  font-size: var(--fs-text-12); font-weight: 400; line-height: 30px;
+  padding: 0 15px;
+}
+.xxsmail {
+  font-size: var(--fs-text-12); font-weight: 700; line-height: 26px;
+  padding: 0 25px;
+  border-radius: 3px;
+}
