@@ -189,8 +189,19 @@ if($rs->num_rows > 0) {
 
 <?php
     for($i_s=0;$i_s<count($arrSystemMenu);$i_s++) {
+        $color_font = "black";
+        switch($arrRowGrade[$i_s]) {
+            case 0:
+                $color_font = "lightgray";
+                break;
+            case 10:
+                $color_font = "blue";
+                break;
+            default:
+                break;
+        }
 ?>
-                    <td><?=$arrSystemMenu[$i_s]["grade"][$arrRowGrade[$i_s]]?></td>
+                    <td style="color:<?=$color_font?>;"><?=$arrSystemMenu[$i_s]["grade"][$arrRowGrade[$i_s]]?></td>
 <?php
     }
 ?>
