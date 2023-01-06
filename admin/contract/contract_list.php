@@ -11,6 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/contract/ContractMgr.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/contract/ContractBaseChubbMgr.php";
 
 $menuNo = [0,0,0];
+$configFullScreen = 10;
 
 if (LoginManager::getManagerLoginInfo("grade_0") < 1) {
     JsUtil::alertReplace("작업 권한이 없습니다.    ", "/");
@@ -140,8 +141,8 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
     <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
 </form>
 
-<div class="list-area">
-    <div class="title-area">
+<div class="list-area <?=$configFullScreen>1?"toggle_padding":""?>">
+    <div class="title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h2>통합 계약 내역 검색</h2>
         <div class="button-right">
 <?/*			
@@ -151,7 +152,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
         </div>
     </div>
 
-	<div class="list-search-wrap">
+	<div class="list-search-wrap <?=$configFullScreen>0?"hide_full_screen":""?>">
         <form name="searchForm" method="get" action="contract_list.php">
             <input type="hidden" name="_order_by" value="<?=$_order_by?>">
             <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
@@ -278,7 +279,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
             </div>
         </form>
     </div>
-    <div class="list-title-area">
+    <div class="list-title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h3>총 계약 <span class="number"><?=number_format($pg->getTotalCount())?></span>건</h3>
         <div class="filter-area">
             <a href="#" name="_btn_sort" order_by="ic_idx" order_by_asc="desc" class="button filter xsmail <?=$_order_by=="ic_idx" && $_order_by_asc=="desc"?"active":""?>">최신순</a>

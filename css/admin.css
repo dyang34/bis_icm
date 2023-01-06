@@ -163,23 +163,33 @@
   display: inline-block;
   margin-left: 10px;
 }
+
+.content-wrap .list-area .title-area .button-right span.more-btn {
+  display: inline-block;
+  border: 3px solid var(--point-color); border-radius: 34px;
+  background-color: var(--color-white);
+  font-size: 12px; font-weight: 400; text-align: center; color: var(--point-color);
+  width: 88px; line-height: 32px;
+  vertical-align: bottom;
+  cursor: pointer;
+}
 .content-wrap .list-area .list-search-wrap {
   display: block;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 15px; margin-bottom: 50px;
   clear: both;
 }
 .content-wrap .list-area .list-search-wrap .button-center {
   margin-top: 10px;
 }
 .content-wrap .list-area .list-search-wrap .button-center .button {
-  width: 120px; text-align: center;
+  width: 170px; text-align: center;
   padding: 0;
 }
 .content-wrap .list-area .list-title-area {
   position: relative;
   display: block;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .content-wrap .list-area .list-title-area h3 {
   font-size: var(--fs-title-22);
@@ -199,7 +209,8 @@
 .content-wrap .list-area .list-cont-wrap {
   display: block;
   min-width: 1570px;
-  margin-top: 10px;  margin-bottom: 30px;
+/* margin-top: 10px;  */
+  margin-bottom: 30px;
   overflow-x: scroll;
   white-space: nowrap;
   clear: both;
@@ -290,12 +301,12 @@
 .date_picker {
   position: relative;
   border: 1px solid var(--color-lightGray); border-radius: 3px;
-  width: 180px; height: 32px; line-height: 32px;
+  width: 180px; height: 26px; line-height: 26px;
   box-sizing: border-box;
   z-index: 2;
 }
 .date_picker .input {
-  width: 100%; height: 30px; line-height: 30px;
+  width: 100%; height: 24px; line-height: 24px;
   border: none;
   outline: none;
   vertical-align: top;
@@ -303,7 +314,7 @@
   font-size: var(--fs-text-12); font-weight: 300;
 }
 .date_picker .ui-datepicker-trigger {
-  position: absolute; top: 5px; right: 5px;
+  position: absolute; top: 1px; right: 2px;
 }
 .ui-datepicker-div {
   background-color: var(--color-white);
@@ -332,14 +343,14 @@
 .table-search tr th,
 .table-search tr td {
   font-size: var(--fs-text-12); font-weight: 300;
-  padding: 12px 20px; 
+  padding: 5px 20px; 
   text-align: left;
   border-bottom: 1px solid var(--color-lightGray);
   vertical-align: middle;
 }
 .table-search tbody tr th {
   background-color: var(--color-lightSilver);
-  font-size: var(--fs-text-13); font-weight: 700;
+  font-size: var(--fs-text-13); font-weight: 500;
 }
 .table-search tbody tr td {
   background-color: var(--color-white);
@@ -347,17 +358,17 @@
 .table-search tbody tr td .date_picker_at {
   float: left;
   padding: 0 10px;
-  line-height: 32px;
+  line-height: 26px;
 }
 .table-search tbody tr td .input_at {
   float: left;
   padding: 0 8px;
-  line-height: 32px;
+  line-height: 26px;
 }
 .table-search tbody tr td .input_krw {
   float: left;
   padding-left: 5px;
-  line-height: 32px;
+  line-height: 26px;
 }
 .table-search tbody tr td .choice-circle,
 .table-search tbody tr td .choice-round {
@@ -384,18 +395,21 @@
   border-collapse:collapse;
   border-spacing:0px;
 }
+.table-basic tr:nth-child(even) td {
+  background-color: var(--color-snow);
+}
 .table-basic tr th, .table-basic tr td {
-  padding: 14px 10px;
+  padding: 5px 10px;
   text-align: center; font-size: var(--fs-text-12); font-weight: 300;
-  border: 1px solid var(--color-lightGray);
+  border: 1px solid #c1c1c1;
   background-color: var(--color-white);
   vertical-align: middle;
   word-break:break-all;
   box-sizing: border-box;
 }
 .table-basic thead tr th {
-  background-color: var(--color-lightSilver);
-  font-size: var(--fs-text-13); font-weight: 700; text-align: center;
+  background-color: var(--color-lightGray);
+  font-size: var(--fs-text-13); font-weight: 500; text-align: center;
 }
 .table-basic tbody tr th {
   background-color: var(--color-lightSilver);
@@ -439,18 +453,29 @@
   border-spacing:0px;
 }
 .table-write tr th, .table-write tr td {
-  padding: 14px 10px;
+  padding: 14px 10px; padding-left: 20px;
   text-align: left; font-size: var(--fs-text-12); font-weight: 300;
   border: 1px solid var(--color-lightGray);
   background-color: var(--color-white);
   vertical-align: middle;
-  word-break:break-all;
-  box-sizing: border-box;
 }
 .table-write tbody tr th {
   background-color: var(--color-lightSilver);
   font-size: var(--fs-text-12); font-weight: 700;
   text-align: left;
+}
+.table-write tbody tr th.required {
+  position: relative;
+}
+.table-write tbody tr th.required:before {
+  content: "*";
+  position: absolute; top: 50%; left: 10px;
+  transform: translateY(-40%);
+  color: var(--color-red);
+}
+.table-write tr td {
+  word-break:break-all;
+  box-sizing: border-box;
 }
 .table-write tbody tr td.center {
   text-align: center;
@@ -459,7 +484,10 @@
   text-align: right;
 }
 .table-write tbody tr td .select-box {
-  height: 32px; line-height: 32px;
+  height: calc(32px - 2px); line-height: 28px;
+}
+.table-write tbody tr td .select-box select {
+  height: 30px; line-height: 28px;
 }
 .table-write tbody tr td .choice-circle,
 .table-write tbody tr td .choice-round {
@@ -479,4 +507,21 @@
 .table-write tbody tr td .textarea:hover,
 .table-write tbody tr td .textarea:focus {
   border-color: var(--color-blue);
+}
+
+.table-write tbody tr td .choice-circle span.box, .table-write tbody tr td .choice-round span.box {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.table-write tbody tr td .choice-circle.second, 
+.table-write tbody tr td .choice-round.second {
+  margin-left: 10px;
+  height: 32px; line-height: 32px;
+}
+
+.table-write tbody tr td .choice-circle.second label, 
+.table-write tbody tr td .choice-round.second label {
+  display: block;
+  height: 32px; line-height: 32px;
+    
 }

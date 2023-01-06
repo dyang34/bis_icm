@@ -9,6 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/db/Page.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/customer/CustomerMgr.php";
 
 $menuNo = [0,2,0];
+$configFullScreen = 10;
 
 if (LoginManager::getManagerLoginInfo("grade_0") < 10) {
     JsUtil::alertReplace("작업 권한이 없습니다.    ", "/");
@@ -16,7 +17,7 @@ if (LoginManager::getManagerLoginInfo("grade_0") < 10) {
 }
 
 $currentPage = RequestUtil::getParam("currentPage", "1");
-$pageSize = RequestUtil::getParam("pageSize", "25");
+$pageSize = RequestUtil::getParam("pageSize", "50");
 
 $_name = RequestUtil::getParam("_name", "");
 $_rate_fee_from = RequestUtil::getParam("_rate_fee_from", "");
@@ -63,8 +64,8 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
     <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
 </form>
 
-<div class="list-area">
-    <div class="title-area">
+<div class="list-area <?=$configFullScreen>1?"toggle_padding":""?>">
+    <div class="title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h2>거래처 검색</h2>
         <div class="button-right">
             <a href="./customer_write.php" class="button Gray medium">추가</a>            
@@ -72,7 +73,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
         </div>
                 </div>
 				
-	<div class="list-search-wrap">
+	<div class="list-search-wrap <?=$configFullScreen>0?"hide_full_screen":""?>">
         <form name="searchForm" method="get" action="customer_list.php">
             <input type="hidden" name="_order_by" value="<?=$_order_by?>">
             <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
@@ -146,7 +147,7 @@ for($ii=0;$ii<count($arrCustomerType);$ii++) {
             </div>
         </form>
     </div>
-    <div class="list-title-area">
+    <div class="list-title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h3>총 DATA <span class="number"><?=number_format($pg->getTotalCount())?></span>건</h3>
 				
         <div class="filter-area">

@@ -47,8 +47,8 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
     <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
 </form>
 
-<div class="list-area">
-    <div class="title-area">
+<div class="list-area <?=$configFullScreen>1?"toggle_padding":""?>">
+    <div class="title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h2>회원 검색
         </h2>
         <div class="button-right">
@@ -57,7 +57,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
         </div>
                 </div>
 				
-	<div class="list-search-wrap">
+	<div class="list-search-wrap <?=$configFullScreen>0?"hide_full_screen":""?>">
         <form name="searchForm" method="get" action="adm_mem_list.php">
             <input type="hidden" name="_order_by" value="<?=$_order_by?>">
             <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
@@ -109,7 +109,7 @@ for($ii=0;$ii<count($arrMemGradeKey);$ii++) {
     				</div>
 				</form>
 			</div>
-    <div class="list-title-area">
+    <div class="list-title-area <?=$configFullScreen>0?"hide_full_screen":""?>">
         <h3>등록 회원 <span class="number"><?=number_format($pg->getTotalCount())?></span>건</h3>
         <div class="filter-area">
             <a href="#none" name="_btn_sort" order_by="reg_date" order_by_asc="desc" class="button filter xsmail <?=$_order_by=="reg_date"?"active":""?>">최신순</a>

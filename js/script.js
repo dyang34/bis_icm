@@ -1,22 +1,24 @@
 /** Left Menu euni 수정 */
-var openNav = function() {
+const openNav = function() {
   document.getElementById("Sidenav").style.width = "250px";
   document.getElementById("conts").style.marginLeft = "250px";
   document.getElementById("nav").style.marginLeft = "250px";
 
-  $('#topMenu').fadeIn();
+  $('.hide_full_screen').fadeIn();
   $('.title-area').css("padding-top","115px");
-  
+  $('.toggle_padding').css("padding","0 50px");
+
   setCookie("leftmenu_close", "false", 1);
 }
 
-var closeNav = function() {
+const closeNav = function() {
   document.getElementById("Sidenav").style.width = "0px";
   document.getElementById("conts").style.marginLeft= "0px";
   document.getElementById("nav").style.marginLeft= "0px";
 
-  $('#topMenu').fadeOut();
+  $('.hide_full_screen').fadeOut();
   $('.title-area').css("padding-top","30px");
+  $('.toggle_padding').css("padding","0px");
 
   setCookie("leftmenu_close", "true", 1);
 }

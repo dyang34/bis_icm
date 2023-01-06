@@ -65,16 +65,14 @@ img {
   border-style: none;
 }
 button, input, select, textarea {
-  border-radius: 0;
-  border: none;
-  background: 0 0;
+  border-radius: 0; border: none; background: 0 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: 0;
+	 -moz-appearance: none;
+		  appearance: none;
+  -webkit-text-size-adjust: none;
   text-decoration: none;
   cursor: pointer;
-  -webkit-text-size-adjust: none;
+  outline: 0;
 }
 strong {
   font-weight: 700; line-height: 140%;
@@ -141,13 +139,21 @@ p {
   vertical-align: top;
 }
 
-
-
 .mgt0 { margin-top: 0px !important; }
-.mgt5 { padding-top: 5px !important; }
+.mgt5 { margin-top: 5px !important; }
+.mgt10 { margin-top: 10px !important; }
+
+.mgb0 { margin-bottom: 0px !important; }
+.mgb5 { margin-bottom: 5px !important; }
+.mgb10 { margin-bottom: 10px !important; }
 
 .mgl5 { padding-left: 5px !important; }
 .mgl10 { padding-left: 10px !important; }
+
+.mgr5 { padding-right: 5px !important; }
+.mgr10 { padding-right: 10px !important; }
+
+.pdt5 { padding-top: 5px !important; }
 
 .fc-red {
   color: var();
@@ -161,6 +167,7 @@ p {
 .fr {
   float: right;
 }
+
 
 
 /******************************************************************
@@ -208,7 +215,7 @@ input:focus {
   border-color: var(--point-color);
 }
 .input01 {
-  width: 100%; height: 32px; line-height: 32px;
+  width: 100%; height: 26px; line-height: 24px;
   border:1px solid var(--color-lightGray); border-radius: 3px;
   background-color: var(--color-white);
   padding:0 15px; padding-right: 0px;
@@ -224,6 +231,7 @@ input:focus {
   padding:0 5%;
   font-size: var(--fs-text-12); font-weight: 400;
 }
+
 
 
 /******************************************************************
@@ -331,6 +339,7 @@ input:focus {
 }
 
 
+
 /******************************************************************
            selectBox Style Css 
 ***********************/
@@ -349,7 +358,7 @@ select::-ms-expand {
 select {
   padding: 0 0px; padding-left: 15px;
   border: 0; border-radius: 0;
-  width: 100%; height: 32px;
+  width: 100%; height: 24px;
   font-weight: 400;
   cursor: pointer;
 }
@@ -361,14 +370,14 @@ select:focus, select:active {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 100%; height: 30px; line-height: 30px;
+  width: 100%; height: 26px; line-height: 24px;
   background-color: var(--color-white);
   border-radius: 3px; border: 1px solid var( --color-lightGray);
   cursor: pointer;
 }
 .select-box:before {
   content: '';
-  width: 35px;
+  width: 24px;
   position: absolute; top: 0px; right: 0px; bottom: 0px;
   background: var(--color-snow);
   border-radius: 0 5px 5px 0;
@@ -376,7 +385,7 @@ select:focus, select:active {
 }
 .select-box:after {
   content: '';
-  position: absolute; top: 0; right: 10px; bottom: 0;
+  position: absolute; top: 0; right: 5px; bottom: 0;
   background-image: url('../images/admin/amdin_icon_220913.png');
   background-size: 100px 100px;
   background-repeat: no-repeat;
@@ -395,6 +404,7 @@ select:focus, select:active {
   background-position: -52px -39px;
   width: 16px; height: 9px;
 }
+
 
 
 /******************************************************************
@@ -477,7 +487,6 @@ select:focus, select:active {
   border-radius: 10px; /*스크롤바 트랙 라운드*/
   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.1); /*스크롤바 트랙 안쪽 그림자*/
 }
-
 
 
 

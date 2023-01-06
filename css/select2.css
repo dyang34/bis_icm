@@ -163,7 +163,7 @@
 }
 
 .select2-container--default .select2-selection--single {
-    height: 32px; line-height: 32px;
+    height: 26px; line-height: 24px;
 	background-color: var(--color-white);
 	border-radius: 3px; border: 1px solid var( --color-lightGray);
 }
@@ -174,7 +174,7 @@
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #444;
-    line-height: 28px
+    line-height: 24px
 }
 
 .select2-container--default .select2-selection--single .select2-selection__clear {
@@ -189,7 +189,7 @@
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   position: absolute; top: 1px; right: 1px; bottom: 0px;
-  width: 30px; height: 30px;
+  width: 24px; height: 24px;
   background: var(--color-snow);
   border-radius: 0 5px 5px 0;
   pointer-events: none;
@@ -197,7 +197,7 @@
 
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
   content: '';
-  position: absolute; top: 0; right: 6px; bottom: 0;
+  position: absolute; top: 0; right: 3px; bottom: 0;
   background-image: url('../images/admin/amdin_icon_220913.png');
   background-size: 100px 100px;
   background-repeat: no-repeat;
