@@ -67,8 +67,40 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
                     </tr>
 */?>
                     <tr>
+                        <th class="required">거래처명</th>
+                        <td>
+<?php
+    if ($mode=="INS") {
+?>        
+                            <input type="text" name="name" value="<?=$row['name']?>" placeholder="거래처명을 입력하세요." class="input01" style="width: 500px;">
+<?php
+    } else {
+?>
+                            <input type="hidden" name="name" value="<?=$row['name']?>"><?=$row['name']?>
+<?php        
+    }
+?>
+                        </td>
+                    </tr>
+                    <tr>
                         <th class="required">유형</th>
                         <td>
+<?php
+    $arr_c_type = explode(",", $row['type']);
+
+    $arrCustomerTypeKey = array_keys($arrCustomerType);
+    $arrCustomerTypeVal = array_values($arrCustomerType);
+    
+    for($ii=0;$ii<count($arrCustomerType);$ii++) {
+?>
+                            <div class="choice-round">
+                                <input type="checkbox" id="c_type_<?=$arrCustomerTypeKey[$ii]?>" name="c_type[]" value="<?=$arrCustomerTypeKey[$ii]?>" <?=in_array($arrCustomerTypeKey[$ii],$arr_c_type)?"checked='checked'":""?> />
+                                <label for="c_type_<?=$arrCustomerTypeKey[$ii]?>"><?=$arrCustomerTypeVal[$ii]?><span class="box"></span></label>
+                            </div>
+<?
+    }
+?>
+<?/*
                             <div class="select-box" style="width: 200px;">
                                 <select name="type">
 <?php
@@ -83,22 +115,7 @@ for($ii=0;$ii<count($arrCustomerType);$ii++) {
 ?>                                        
                                 </select>    
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="required">거래처명</th>
-                        <td>
-<?php
-    if ($mode=="INS") {
-?>        
-                            <input type="text" name="name" value="<?=$row['name']?>" placeholder="거래처명을 입력하세요." class="input01" style="width: 500px;">
-<?php
-    } else {
-?>
-                            <input type="hidden" name="name" value="<?=$row['name']?>"><?=$row['name']?>
-<?php        
-    }
-?>
+*/?>                            
                         </td>
                     </tr>
                     <tr>
@@ -225,6 +242,11 @@ $(document).on("click","a[name=btnSave]",function() {
 
 	if ( VC_inValidText(f.name, "거래처명") ) return false;
     if ( VC_inValidText(f.rate_fee, "수수료율") ) return false;
+
+    if($('input[name="c_type[]"]:checked').length < 1) {
+        alert("거래처 유형을 1개 이상 체크해 주십시오.    ");
+        return false;
+    }
 
 	f.auto_defense.value = "identicharmc!@";
 	mc_consult_submitted = true;

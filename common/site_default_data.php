@@ -68,9 +68,9 @@ $arrCustomerCalcPeriod = [
 ];
 
 $arrCustomerType = [
-    ["단기여행자보험", "S"]
-    ,["장기여행자보험", "L"]
-    ,["기업보험", "C"]
+    "A"=>"단기여행자보험"
+    ,"B"=>"장기여행자보험"
+    ,"C"=>"기업보험"
 ];
 
 $arrInsuranceCompany = [

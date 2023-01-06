@@ -21,7 +21,7 @@ if (LoginManager::getManagerLoginInfo("grade_0") < 9) {
 
 $mode = RequestUtil::getParam("mode", "INS");
 $imc_idx = RequestUtil::getParam("imc_idx", "");
-$type = RequestUtil::getParam("type", "");
+//$type = RequestUtil::getParam("type", "");
 $name = RequestUtil::getParam("name", "");
 $rate_fee = RequestUtil::getParam("rate_fee", "");
 $rate_fee_old = RequestUtil::getParam("rate_fee_old", "");
@@ -34,6 +34,9 @@ $account_no = RequestUtil::getParam("account_no", "");
 $account_holder = RequestUtil::getParam("account_holder", "");
 $memo = RequestUtil::getParam("memo", "");
 $history = RequestUtil::getParam("history", "");
+$arr_c_type = RequestUtil::getParam("c_type", "");
+
+$c_type = implode($arr_c_type,",");
 
 $auto_defense = RequestUtil::getParam("auto_defense", "");
 
@@ -51,7 +54,7 @@ try {
         }
 
         $arrIns = array();
-        $arrIns["type"] = $type;
+        $arrIns["type"] = $c_type;
         $arrIns["name"] = $name;
         $arrIns["rate_fee"] = $rate_fee;
         $arrIns["calc_period"] = $calc_period;
@@ -87,7 +90,7 @@ try {
         }
         
         $uq = new UpdateQuery();
-        $uq->add("type", $type);
+        $uq->add("type", $c_type);
         $uq->add("name", $name);
         $uq->add2("rate_fee", $rate_fee);
         $uq->add("calc_period", $calc_period);
@@ -100,11 +103,11 @@ try {
         $uq->add("memo", $memo);
         
         CustomerMgr::getInstance()->edit($uq, $imc_idx);
-        
+
         if($rate_fee != $rate_fee_old) {
             $arrIns["imc_idx"] = $imc_idx;
             $arrIns["rate_fee"] = $rate_fee_old;
-            $arrIns["to_date"] = date();
+            $arrIns["to_date"] = date("Y-m-d H:i:s", time());;
             CustomerFeeHistoryMgr::getInstance()->add($arrIns);
         }
 

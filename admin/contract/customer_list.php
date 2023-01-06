@@ -22,6 +22,7 @@ $_name = RequestUtil::getParam("_name", "");
 $_rate_fee_from = RequestUtil::getParam("_rate_fee_from", "");
 $_rate_fee_to = RequestUtil::getParam("_rate_fee_to", "");
 $_calc_period = RequestUtil::getParam("_calc_period", "");
+$_type = RequestUtil::getParam("_type", "");
 
 $_order_by = RequestUtil::getParam("_order_by", "imc_idx");
 $_order_by_asc = RequestUtil::getParam("_order_by_asc", "desc");
@@ -32,6 +33,7 @@ $wq = new WhereQuery(true, true);
 $wq->addAndString2("imc_fg_del","=","0");
 $wq->addAndLike("name",$_name);
 $wq->addAndString("calc_period","=",$_calc_period);
+$wq->addAndLike("type",$_type);
 
 if($_rate_fee_from != "") {
 	$wq->addAndString2("rate_fee", ">=", $_rate_fee_from);
@@ -53,6 +55,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
 
     <input type="hidden" name="_name" value="<?=$_name?>">
     <input type="hidden" name="_calc_period" value="<?=$_calc_period?>">
+    <input type="hidden" name="_type" value="<?=$_type?>">
     <input type="hidden" name="_rate_fee_from" value="<?=$_rate_fee_from?>">
     <input type="hidden" name="_rate_fee_to" value="<?=$_rate_fee_to?>">
 
@@ -75,12 +78,14 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
             <input type="hidden" name="_order_by_asc" value="<?=$_order_by_asc?>">
             <table class="table-search">
                 <colgroup>
-                    <col style="width:7%;">
-                    <col style="width:26%;">
-                    <col style="width:7%;">
-                    <col style="width:27%;">
-                    <col style="width:7%;">
-                    <col style="width:26%;">
+                    <col style="width:6%;">
+                    <col style="width:19%;">
+                    <col style="width:6%;">
+                    <col style="width:19%;">
+                    <col style="width:6%;">
+                    <col style="width:19%;">
+                    <col style="width:6%;">
+                    <col style="width:19%;">
                 </colgroup>
                 <tbody>
                     <tr>
@@ -88,10 +93,10 @@ include $_SERVER['DOCUMENT_ROOT']."/include/header.php";
                         <td><input type="text" placeholder="거래처명으로 검색" name="_name" class="input01" value=<?=$_name?>></td>
                         <th>수수료율</th>
                         <td>
-                            <input type="number" class="input01 fl" placeholder="" name="_rate_fee_from" style="width: 40%;" value=<?=$_rate_fee_from?>>
+                            <input type="number" class="input01 fl" placeholder="" name="_rate_fee_from" style="width: 35%;" value=<?=$_rate_fee_from?>>
                             <span class="input_krw">%</span>
                             <span class="input_at">~</span>
-                            <input type="number" class="input01 fl" placeholder="" name="_rate_fee_to" style="width: 40%;" value=<?=$_rate_fee_to?>>
+                            <input type="number" class="input01 fl" placeholder="" name="_rate_fee_to" style="width: 35%;" value=<?=$_rate_fee_to?>>
                             <span class="input_krw">%</span>
                         </td>
                         <th>정산주기</th>
@@ -106,6 +111,24 @@ $arrCustomerCalcPeriodVal = array_values($arrCustomerCalcPeriod);
 for($ii=0;$ii<count($arrCustomerCalcPeriod);$ii++) {
 ?>
         <option value="<?=$arrCustomerCalcPeriodKey[$ii]?>" <?=$_calc_period==$arrCustomerCalcPeriodKey[$ii]?"selected":""?>><?=$arrCustomerCalcPeriodVal[$ii]?></option>
+<?php
+}
+?>                                        
+                                </select>    
+                            </div>
+                        </td>
+                        <th>유형</th>
+                        <td>
+                            <div class="select-box">                                    
+                                <select name="_type">
+                                    <option value="">유형</option>
+<?php
+$arrCustomerTypeKey = array_keys($arrCustomerType);
+$arrCustomerTypeVal = array_values($arrCustomerType);
+
+for($ii=0;$ii<count($arrCustomerType);$ii++) {
+?>
+        <option value="<?=$arrCustomerTypeKey[$ii]?>" <?=$_type==$arrCustomerTypeKey[$ii]?"selected":""?>><?=$arrCustomerTypeVal[$ii]?></option>
 <?php
 }
 ?>                                        

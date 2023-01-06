@@ -1,4 +1,4 @@
-<?phpustomerDao
+<?php
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/customer/CustomerFeeHistoryDao.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/db/A_Mgr.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/db/DbUtil.php";
