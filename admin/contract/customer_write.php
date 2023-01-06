@@ -105,6 +105,7 @@ for($ii=0;$ii<count($arrCustomerType);$ii++) {
                         <th class="required">수수료율</th>
                         <td>
                             <input type="number" name="rate_fee" value="<?=$row['rate_fee']?>" placeholder="수수료율" class="input01 fl" style="width: 100px;"><span class="input_krw">%</span>
+                            <input type="hidden" name="rate_fee_old" value="<?=$row['rate_fee']?>" />
                         </td>
                     </tr>
                     <tr>

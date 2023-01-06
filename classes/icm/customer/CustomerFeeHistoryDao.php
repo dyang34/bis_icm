@@ -1,7 +1,7 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/db/A_Dao.php";
 
-class CustomerDao extends A_Dao
+class CustomerFeeHistoryDao extends A_Dao
 {
 	private static $instance = null;
 
@@ -18,9 +18,9 @@ class CustomerDao extends A_Dao
 
 	function selectByKey($db, $key) {
 		 
-		$sql =" select imc_idx ,type, code ,name, email, tel1, tel2 ,rate_fee ,calc_period, account_bank, account_no, account_holder, memo, history ,reg_date "
-			 ." from icm_mst_customer a "
-			 ." where imc_idx = ".$this->quot($db, $key)
+		$sql =" select imc_idx ,rate_fee, to_date ,reg_date "
+			 ." from icm_mst_customer_fee_history a "
+			 ." where imcfh_idx = ".$this->quot($db, $key)
 		 	 ;
 		
 		$row = null;
@@ -36,8 +36,8 @@ class CustomerDao extends A_Dao
 
 	function selectFirst($db, $wq) {
 
-		$sql =" select imc_idx ,type, code ,name, email, tel1, tel2 ,rate_fee ,calc_period, account_bank, account_no, account_holder, memo, history ,reg_date "
-			 ." from icm_mst_customer a "
+		$sql =" select imc_idx ,rate_fee, to_date ,reg_date "
+			 ." from icm_mst_customer_fee_history a "
 			 .$wq->getWhereQuery()
 			 .$wq->getOrderByQuery()
 			 ;
@@ -56,8 +56,8 @@ class CustomerDao extends A_Dao
 
 	function select($db, $wq) {
 	    
-	    $sql =" select imc_idx ,type, code ,name, email, tel1, tel2 ,rate_fee ,calc_period, account_bank, account_no, account_holder, memo, history ,reg_date "
-	         ." from icm_mst_customer a "
+	    $sql =" select imc_idx ,rate_fee, to_date ,reg_date "
+	         ." from icm_mst_customer_fee_history a "
 	         .$wq->getWhereQuery()
 	         .$wq->getOrderByQuery()
 	         ;
@@ -68,15 +68,15 @@ class CustomerDao extends A_Dao
 	function selectPerPage($db, $wq, $pg) {
 		
 		$sql =" select @rnum:=@rnum+1 as rnum, r.* from ("
-			 ."		select @rnum:=0, imc_idx ,type, code ,name, email, tel1, tel2 ,rate_fee ,calc_period, account_bank, account_no, account_holder, memo, history ,reg_date "
-			 ."		from icm_mst_customer a "
+			 ."		select @rnum:=0, imc_idx ,rate_fee, to_date ,reg_date "
+			 ."		from icm_mst_customer_fee_history a "
 			 ." 		INNER JOIN ( "
-			 ."			select imc_idx as idx from icm_mst_customer a "
+			 ."			select imcfh_idx as idx from icm_mst_customer_fee_history a "
 						 .$wq->getWhereQuery()
 						 .$wq->getOrderByQuery()
 			 ."     		limit ".$pg->getStartIdx().", ".$pg->getPageSize()
 			 ." 		) pg_idx "
-			 ." 		on a.imc_idx=pg_idx.idx "
+			 ." 		on a.imcfh_idx=pg_idx.idx "
 			 ." ) r"
 			 ;
 
@@ -86,7 +86,7 @@ class CustomerDao extends A_Dao
 	function selectCount($db, $wq) {
 
 		$sql =" select count(*) cnt"
-			 ." from icm_mst_customer a "
+			 ." from icm_mst_customer_fee_history a "
 			 .$wq->getWhereQuery()
 			 ;
 
@@ -104,7 +104,7 @@ class CustomerDao extends A_Dao
 	function exists($db, $wq) {
 
 		$sql =" select count(*) cnt"
-			 ." from icm_mst_customer"
+			 ." from icm_mst_customer_fee_history"
 			 .$wq->getWhereQuery()
 			 ;
 
@@ -125,19 +125,10 @@ class CustomerDao extends A_Dao
 	
 	function insert($db, $arrVal) {
 	    
-	    $sql =" insert into icm_mst_customer(type, code ,name, email, tel1, tel2 ,rate_fee ,calc_period, account_bank, account_no, account_holder, memo ,reg_date)"
-	        ." values ('".$this->checkMysql($db, $arrVal["type"])
-	        ."', '".$this->checkMysql($db, $arrVal["code"])
-	        ."', '".$this->checkMysql($db, $arrVal["name"])
-	        ."', '".$this->checkMysql($db, $arrVal["email"])
-	        ."', '".$this->checkMysql($db, $arrVal["tel1"])
-	        ."', '".$this->checkMysql($db, $arrVal["tel2"])
+	    $sql =" insert into icm_mst_customer_fee_history(imc_idx ,rate_fee, to_date ,reg_date)"
+	        ." values ('".$this->checkMysql($db, $arrVal["imc_idx"])
 	        ."', '".$this->checkMysql($db, $arrVal["rate_fee"])
-	        ."', '".$this->checkMysql($db, $arrVal["calc_period"])
-	        ."', '".$this->checkMysql($db, $arrVal["account_bank"])
-	        ."', '".$this->checkMysql($db, $arrVal["account_no"])
-	        ."', '".$this->checkMysql($db, $arrVal["account_holder"])
-			."', '".$this->checkMysql($db, $arrVal["memo"])
+	        ."', '".$this->checkMysql($db, $arrVal["to_date"])
 	        ."', now())"
 	            ;
 	            
@@ -146,16 +137,16 @@ class CustomerDao extends A_Dao
 	
 	function update($db, $uq, $key) {
 	    
-	    $sql =" update icm_mst_customer"
+	    $sql =" update icm_mst_customer_fee_history"
 	        .$uq->getQuery($db)
-	        ." where imc_idx = ".$this->quot($db, $key);
+	        ." where imcfh_idx = ".$this->quot($db, $key);
 	        
         return $db->query($sql);
 	}
 	
 	function delete($db, $key) {
-	    if ($key) {
-			$sql = "update icm_mst_customer set imc_fg_del = 1 where imc_idx = ".$this->quot($db, $key);
+		if ($key) {
+			$sql = "delete from icm_mst_customer_fee_history where imcfh_idx = ".$this->quot($db, $key);
 			return $db->query($sql);
 		}
 	}	

@@ -140,7 +140,6 @@ class ContractDao extends A_Dao
 	function delete($db, $key) {
 	    if ($key) {
     	    $sql = "update icm_contract set fg_del=1 where ic_idx = ".$this->quot($db, $key);
-
     	    return $db->query($sql);
 	    }
 	}	

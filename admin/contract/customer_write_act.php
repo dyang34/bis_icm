@@ -7,6 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/db/UpdateQuery.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/util/JsUtil.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/cms/login/LoginManager.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/customer/CustomerMgr.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/classes/icm/customer/CustomerFeeHistoryMgr.php";
 
 if(!LoginManager::isManagerLogined()) {
     JsUtil::alertReplace("로그인이 필요합니다.    ","/");
@@ -23,6 +24,7 @@ $imc_idx = RequestUtil::getParam("imc_idx", "");
 $type = RequestUtil::getParam("type", "");
 $name = RequestUtil::getParam("name", "");
 $rate_fee = RequestUtil::getParam("rate_fee", "");
+$rate_fee_old = RequestUtil::getParam("rate_fee_old", "");
 $calc_period = RequestUtil::getParam("calc_period", "");
 $email = RequestUtil::getParam("email", "");
 $tel1 = RequestUtil::getParam("tel1", "");
@@ -99,6 +101,13 @@ try {
         
         CustomerMgr::getInstance()->edit($uq, $imc_idx);
         
+        if($rate_fee != $rate_fee_old) {
+            $arrIns["imc_idx"] = $imc_idx;
+            $arrIns["rate_fee"] = $rate_fee_old;
+            $arrIns["to_date"] = date();
+            CustomerFeeHistoryMgr::getInstance()->add($arrIns);
+        }
+
         JsUtil::alertReplace("수정되었습니다.    ", "./customer_list.php");
         
     } else if($mode=="DEL") {

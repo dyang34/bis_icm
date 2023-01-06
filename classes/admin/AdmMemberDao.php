@@ -156,10 +156,10 @@ class AdmMemberDao extends A_Dao
 	}
 	
 	function delete($db, $key) {
-	    
-	    $sql =" update icm_adm_member set fg_del=1 where userid = ".$this->quot($db, $key);
-	    
-	    return $db->query($sql);
+	    if ($key) {
+	    	$sql =" update icm_adm_member set fg_del=1 where userid = ".$this->quot($db, $key);
+			return $db->query($sql);
+		}
 	}	
 }
 ?>

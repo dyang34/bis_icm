@@ -3,7 +3,7 @@
   	<h1>
 		<a href="#">
 	  		<img src="/images/common/bis_logo_White.svg" alt="BIS 로고">
-	  		통합 관리 시스템 (IMS)
+	  		통합 관리 시스템 (CMI)
 		</a>
   	</h1>
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-nav"></i>메뉴닫기</a><a name="btnExpandLeftMenu" accesskey="Q"></a>
