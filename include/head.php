@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/common/site_default_data.php";
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>통합 관리 시스템(IMS)</title>
+        <title>통합 관리 시스템(CMI)</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">

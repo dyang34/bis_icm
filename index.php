@@ -88,7 +88,7 @@ if(window.location.protocol == "http:"){
             <div class="lg-box">
                 <div class="log-area">
                     <h1><img src="/images/common/bis_logo.png" alt=""></h1>
-                    <h2>통합 관리 시스템 (IMS)</h2>
+                    <h2>통합 관리 시스템 (CMI)</h2>
 
                     <form name="writeForm" class="custom-form" method="post" autocomplete="off">
                         <input type="hidden" name="auto_defense" />

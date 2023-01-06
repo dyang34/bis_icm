@@ -4,6 +4,9 @@ var openNav = function() {
   document.getElementById("conts").style.marginLeft = "250px";
   document.getElementById("nav").style.marginLeft = "250px";
 
+  $('#topMenu').fadeIn();
+  $('.title-area').css("padding-top","115px");
+  
   setCookie("leftmenu_close", "false", 1);
 }
 
@@ -11,6 +14,9 @@ var closeNav = function() {
   document.getElementById("Sidenav").style.width = "0px";
   document.getElementById("conts").style.marginLeft= "0px";
   document.getElementById("nav").style.marginLeft= "0px";
+
+  $('#topMenu').fadeOut();
+  $('.title-area').css("padding-top","30px");
 
   setCookie("leftmenu_close", "true", 1);
 }

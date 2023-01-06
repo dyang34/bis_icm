@@ -186,7 +186,23 @@ if ($rs->num_rows > 0) {
                     <tr>
 
                     	<td style="text-align:center;"><?=number_format($pg->getMaxNumOfPage() - $i)?></td>
-                        <td style="text-align:center;"><?=$arrCustomerType[$row["type"]]?></td>
+                        <td style="text-align:center;">
+<?php
+/*
+        $arrRowType = explode('|+|', $row['type']);
+        $typeTxt = "";
+
+        for($i_s=0;$i_s<count($arrCustomerType);$i_s++) {
+            if($arrRowType[$i_s] > 0) {
+                $typeTxt .= $arrCustomerType[$i_s][1];
+            }
+        }
+
+        echo $typeTxt;
+*/
+        echo $row['type'];
+?>                    
+                    </td>
 <?php/*                
                         <td style="text-align:center;"><?=$row["code"]?></td>
 */?>

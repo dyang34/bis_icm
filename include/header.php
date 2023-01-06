@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
     <!--Left Menu area End */ -->
 
     <!-- /** hearder area Start -->
-		<header>
+		<header id="topMenu">
 			<nav id="nav">
 				<ul>
 <?php
