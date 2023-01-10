@@ -75,15 +75,16 @@ $arrCustomerType = [
 
 $arrInsuranceCompany = [
     "1"=>"CHUBB"
-    ,"2"=>"Meritz"
-    ,"3"=>"MG"
-    ,"4"=>"DB"
+    ,"2"=>"메리츠화재"
+    ,"3"=>"MG손보"
+    ,"4"=>"DB손보"
+    ,"5"=>"삼성화재"
 ];
 
 $arrInsuranceCompanyUpload = [
     "1"=>"CHUBB 파일(.xlsx)"
-    ,"2"=>"Meritz 파일(.xlsx)"
-    ,"4"=>"DB 파일(.xlsx)"
+    ,"2"=>"메리츠화재 파일(.xlsx)"
+    ,"4"=>"DB손보 파일(.xlsx)"
 ];
 
 $arrAmtType = ["배서", "신계약", "환급"];
