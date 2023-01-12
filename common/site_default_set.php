@@ -84,34 +84,10 @@ for($i=0; $i<$ext_cnt; $i++){
  @extract($_GET);
  @extract($_POST);
  @extract($_SERVER);
- */
-
-$config = array();
-$member = array();
-
-
-/* Renewal Comment
- if(!$path || preg_match("/:\/\//", $path)) die("path error");
- 
- $nfor[path] = $path;
- 
- unset($path);
- */
-
-/*
- if(substr($_SERVER[HTTP_HOST],0,4)=="www."){
- $_SERVER[HTTP_HOST] = substr($_SERVER[HTTP_HOST],4);
- }
- */
-
-if(!empty($_POST["blm_transfer_ss_id"])){
-    @session_id($_POST["blm_transfer_ss_id"]);
-}
+*/
 
 ini_set("session.use_trans_sid", 0);
 ini_set("url_rewriter.tags","");
-
-//session_set_save_handler("nfor_session_open", "nfor_session_close", "nfor_session_read", "nfor_session_write", "nfor_session_destroy", "nfor_session_clean");
 
 @session_cache_limiter("no-cache, must-revalidate");
 
