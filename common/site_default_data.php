@@ -79,6 +79,7 @@ $arrInsuranceCompany = [
     ,"3"=>"MG손해보험"
     ,"4"=>"DB손해보험"
     ,"5"=>"삼성화재"
+    ,"6"=>"현대해상"
 ];
 
 $arrInsuranceCompanyUpload = [
